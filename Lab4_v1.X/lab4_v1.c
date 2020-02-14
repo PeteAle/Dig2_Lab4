@@ -13,3 +13,23 @@
 void main(void) {
     return;
 }
+
+void setup(void){
+    TRISB = 0x00;
+    ANSELbits.ANS5 = 1;
+    ANSELbits.ANS6 = 1;
+    PORTB = 0;
+    
+}
+
+void spi_initModeSel(char mode){
+    switch(mode){
+        case 1:
+            TRISCbits.TRISC5 = 0;
+            TRISCbits.TRISC3 = 0
+            SSPSTATbits.SMP = 1;
+            SSPSTATbits.CKE = 0;
+            SSPSTATbits.BF = 0;
+            
+    }
+}
