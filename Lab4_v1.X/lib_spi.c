@@ -18,6 +18,7 @@ void spi_msinit(uint8_t mode){
             TRISCbits.TRISC3 = 0;
             SSPSTATbits.SMP = 0;
             SSPSTATbits.CKE = 0;
+            SSPSTATbits.BF = 0;
             SSPCON = 0b00100000;
             //SSPCONbits.CKP = 0;
             //SSPCONbits.SSPEN = 1;
@@ -27,6 +28,7 @@ void spi_msinit(uint8_t mode){
             TRISCbits.TRISC3 = 0;
             SSPSTATbits.SMP = 0;
             SSPSTATbits.CKE = 0;
+            SSPSTATbits.BF = 0;
             SSPCON = 0b00100001;
             //SSPCONbits.CKP = 0;
             //SSPCONbits.SSPEN = 1;
@@ -36,6 +38,7 @@ void spi_msinit(uint8_t mode){
             TRISCbits.TRISC3 = 0;
             SSPSTATbits.SMP = 0;
             SSPSTATbits.CKE = 0;
+            SSPSTATbits.BF = 0;
             SSPCON = 0b00100010;
             //SSPCONbits.CKP = 0;
             //SSPCONbits.SSPEN = 1;
@@ -46,7 +49,27 @@ void spi_msinit(uint8_t mode){
             TRISCbits.TRISC4 = 1;
             SSPSTATbits.SMP = 0;
             SSPSTATbits.CKE = 0;
+            SSPSTATbits.BF = 0;
             SSPCON = 0b00100100;
             break;
+    }
+}
+
+void spi_write(char datos){
+    SSPBUF = datos;
+}
+
+void spi_bufReady(unsigned char ready){
+    if (SSPSTATbits.BF == 1){
+        ready = 1;
+    }
+    else if (SSPSTATbits.BF == 0){
+        ready = 0;
+    }
+}
+
+void spi_read(char lectura){
+    while (SSPSTATbits.BF == 0){
+        lectura = SSPBUF;
     }
 }

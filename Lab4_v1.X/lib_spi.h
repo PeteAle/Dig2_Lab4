@@ -32,8 +32,13 @@
 #define	__LIB_SPI_H_
 
 #include <xc.h> // include processor files - each processor file is guarded.  
+#include <stdint.h>
+#include <stdio.h>
 
-
+void spi_msinit(uint8_t mode);
+void spi_write(char datos);
+void spi_bufReady(unsigned char ready);
+void spi_read(char lectura);
 
 #endif	/* XC_HEADER_TEMPLATE_H */
 
