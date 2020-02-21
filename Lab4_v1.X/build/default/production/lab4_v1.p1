@@ -1,34 +1,26 @@
 Version 4.0 HI-TECH Software Intermediate Code
+[t ~ __interrupt . k ]
+[t T1 __interrupt ]
 [p mainexit ]
-"1478 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1478: extern volatile unsigned char TRISB __attribute__((address(0x086)));
-[v _TRISB `Vuc ~T0 @X0 0 e@134 ]
-"3393
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 3393:     struct {
-[s S133 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S133 . ANS0 ANS1 ANS2 ANS3 ANS4 ANS5 ANS6 ANS7 ]
-"3392
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 3392: typedef union {
-[u S132 `S133 1 ]
-[n S132 . . ]
-"3404
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 3404: extern volatile ANSELbits_t ANSELbits __attribute__((address(0x188)));
-[v _ANSELbits `VS132 ~T0 @X0 0 e@392 ]
-"228
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 228: extern volatile unsigned char PORTB __attribute__((address(0x006)));
-[v _PORTB `Vuc ~T0 @X0 0 e@6 ]
-"1546
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1546:     struct {
-[s S57 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S57 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
-"1545
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1545: typedef union {
-[u S56 `S57 1 ]
-[n S56 . . ]
-"1557
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1557: extern volatile TRISCbits_t TRISCbits __attribute__((address(0x087)));
-[v _TRISCbits `VS56 ~T0 @X0 0 e@135 ]
-"2183
+"43 lab4_v1.c
+[; ;lab4_v1.c: 43: void setup(void);
+[v _setup `(v ~T0 @X0 0 ef ]
+"36 ./lib_osccon.h
+[; ;./lib_osccon.h: 36: unsigned char oscInit(unsigned char freq);
+[v _oscInit `(uc ~T0 @X0 0 ef1`uc ]
+"36 ./UART.h
+[; ;./UART.h: 36: void uart_init(void);
+[v _uart_init `(v ~T0 @X0 0 ef ]
+"37
+[; ;./UART.h: 37: void uart_9bit(unsigned char rx9, unsigned char tx9);
+[v _uart_9bit `(v ~T0 @X0 0 ef2`uc`uc ]
+"38
+[; ;./UART.h: 38: void txrx_En(unsigned char tx, unsigned char rx);
+[v _txrx_En `(v ~T0 @X0 0 ef2`uc`uc ]
+"40
+[; ;./UART.h: 40: void uart_interrupts(unsigned char rx_int, unsigned char tx_int);
+[v _uart_interrupts `(v ~T0 @X0 0 ef2`uc`uc ]
+"2183 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 2183:     struct {
 [s S82 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S82 . BF UA R_nW S P D_nA CKE SMP ]
@@ -63,6 +55,58 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2231
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 2231: extern volatile SSPSTATbits_t SSPSTATbits __attribute__((address(0x094)));
 [v _SSPSTATbits `VS81 ~T0 @X0 0 e@148 ]
+"1478
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1478: extern volatile unsigned char TRISB __attribute__((address(0x086)));
+[v _TRISB `Vuc ~T0 @X0 0 e@134 ]
+"1670
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1670:     struct {
+[s S61 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S61 . TRISE0 TRISE1 TRISE2 TRISE3 ]
+"1669
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1669: typedef union {
+[u S60 `S61 1 ]
+[n S60 . . ]
+"1677
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1677: extern volatile TRISEbits_t TRISEbits __attribute__((address(0x089)));
+[v _TRISEbits `VS60 ~T0 @X0 0 e@137 ]
+"3393
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 3393:     struct {
+[s S133 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S133 . ANS0 ANS1 ANS2 ANS3 ANS4 ANS5 ANS6 ANS7 ]
+"3392
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 3392: typedef union {
+[u S132 `S133 1 ]
+[n S132 . . ]
+"3404
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 3404: extern volatile ANSELbits_t ANSELbits __attribute__((address(0x188)));
+[v _ANSELbits `VS132 ~T0 @X0 0 e@392 ]
+"228
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 228: extern volatile unsigned char PORTB __attribute__((address(0x006)));
+[v _PORTB `Vuc ~T0 @X0 0 e@6 ]
+"13 lab4_v1.c
+[p x FOSC = INTRC_NOCLKOUT ]
+"14
+[p x WDTE = OFF ]
+"15
+[p x PWRTE = OFF ]
+"16
+[p x MCLRE = OFF ]
+"17
+[p x CP = OFF ]
+"18
+[p x CPD = OFF ]
+"19
+[p x BOREN = OFF ]
+"20
+[p x IESO = OFF ]
+"21
+[p x FCMEN = OFF ]
+"22
+[p x LVP = OFF ]
+"25
+[p x BOR4V = BOR40V ]
+"26
+[p x WRT = OFF ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -297,80 +341,124 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3546
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
+"39 lab4_v1.c
+[; ;lab4_v1.c: 39: float pot1 = 0;
+[v _pot1 `f ~T0 @X0 1 e ]
+[i _pot1
+-> -> 0 `i `f
+]
+"40
+[; ;lab4_v1.c: 40: float pot2 = 0;
+[v _pot2 `f ~T0 @X0 1 e ]
+[i _pot2
+-> -> 0 `i `f
+]
+"41
+[; ;lab4_v1.c: 41: uint16_t temp1 = 0, temp2 = 0;
+[v _temp1 `ui ~T0 @X0 1 e ]
+[i _temp1
+-> -> 0 `i `ui
+]
+[v _temp2 `ui ~T0 @X0 1 e ]
+[i _temp2
+-> -> 0 `i `ui
+]
+[v $root$_isr `(v ~T0 @X0 0 e ]
+"46
+[; ;lab4_v1.c: 46: void __attribute__((picinterrupt(("")))) isr(){
+[v _isr `(v ~T1 @X0 1 ef ]
+{
+[e :U _isr ]
+[f ]
+"48
+[; ;lab4_v1.c: 48: }
+[e :UE 139 ]
+}
 [v $root$_main `(v ~T0 @X0 0 e ]
-"13 lab4_v1.c
-[; ;lab4_v1.c: 13: void main(void) {
+"51
+[; ;lab4_v1.c: 51: void main(void){
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"14
-[; ;lab4_v1.c: 14:     return;
-[e $UE 138  ]
-"15
-[; ;lab4_v1.c: 15: }
-[e :UE 138 ]
+"52
+[; ;lab4_v1.c: 52:     setup();
+[e ( _setup ..  ]
+"53
+[; ;lab4_v1.c: 53:     oscInit(1);
+[e ( _oscInit (1 -> -> 1 `i `uc ]
+"57
+[; ;lab4_v1.c: 57:     uart_init();
+[e ( _uart_init ..  ]
+"58
+[; ;lab4_v1.c: 58:     uart_9bit(0,0);
+[e ( _uart_9bit (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+"59
+[; ;lab4_v1.c: 59:     txrx_En(1,1);
+[e ( _txrx_En (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
+"61
+[; ;lab4_v1.c: 61:     uart_interrupts(0,0);
+[e ( _uart_interrupts (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+"62
+[; ;lab4_v1.c: 62:     while(1){
+[e :U 142 ]
+{
+"63
+[; ;lab4_v1.c: 63:         if (SSPSTATbits.BF == 1 & pot2 != 0){
+[e $ ! & == -> . . _SSPSTATbits 0 0 `i -> 1 `i != _pot2 -> -> 0 `i `f 144  ]
+{
+"65
+[; ;lab4_v1.c: 65:         }
 }
-"17
-[; ;lab4_v1.c: 17: void setup(void){
+[e $U 145  ]
+"66
+[; ;lab4_v1.c: 66:         else if (SSPSTATbits.BF == 1 & pot1 != 0){
+[e :U 144 ]
+[e $ ! & == -> . . _SSPSTATbits 0 0 `i -> 1 `i != _pot1 -> -> 0 `i `f 146  ]
+{
+"68
+[; ;lab4_v1.c: 68:         }
+}
+[e :U 146 ]
+[e :U 145 ]
+"69
+[; ;lab4_v1.c: 69:     }
+}
+[e :U 141 ]
+[e $U 142  ]
+[e :U 143 ]
+"70
+[; ;lab4_v1.c: 70:     return;
+[e $UE 140  ]
+"71
+[; ;lab4_v1.c: 71: }
+[e :UE 140 ]
+}
+"73
+[; ;lab4_v1.c: 73: void setup(void){
 [v _setup `(v ~T0 @X0 1 ef ]
 {
 [e :U _setup ]
 [f ]
-"18
-[; ;lab4_v1.c: 18:     TRISB = 0x00;
+"74
+[; ;lab4_v1.c: 74:     TRISB = 0x00;
 [e = _TRISB -> -> 0 `i `uc ]
-"19
-[; ;lab4_v1.c: 19:     ANSELbits.ANS5 = 1;
+"75
+[; ;lab4_v1.c: 75:     TRISEbits.TRISE0 = 1;
+[e = . . _TRISEbits 0 0 -> -> 1 `i `uc ]
+"76
+[; ;lab4_v1.c: 76:     TRISEbits.TRISE1 = 1;
+[e = . . _TRISEbits 0 1 -> -> 1 `i `uc ]
+"77
+[; ;lab4_v1.c: 77:     ANSELbits.ANS5 = 1;
 [e = . . _ANSELbits 0 5 -> -> 1 `i `uc ]
-"20
-[; ;lab4_v1.c: 20:     ANSELbits.ANS6 = 1;
+"78
+[; ;lab4_v1.c: 78:     ANSELbits.ANS6 = 1;
 [e = . . _ANSELbits 0 6 -> -> 1 `i `uc ]
-"21
-[; ;lab4_v1.c: 21:     PORTB = 0;
+"79
+[; ;lab4_v1.c: 79:     PORTB = 0x00;
 [e = _PORTB -> -> 0 `i `uc ]
-"23
-[; ;lab4_v1.c: 23: }
-[e :UE 139 ]
-}
-"25
-[; ;lab4_v1.c: 25: void spi_initModeSel(char mode){
-[v _spi_initModeSel `(v ~T0 @X0 1 ef1`uc ]
-{
-[e :U _spi_initModeSel ]
-[v _mode `uc ~T0 @X0 1 r1 ]
-[f ]
-"26
-[; ;lab4_v1.c: 26:     switch(mode){
-[e $U 142  ]
-{
-"27
-[; ;lab4_v1.c: 27:         case 1:
-[e :U 143 ]
-"28
-[; ;lab4_v1.c: 28:             TRISCbits.TRISC5 = 0;
-[e = . . _TRISCbits 0 5 -> -> 0 `i `uc ]
-"29
-[; ;lab4_v1.c: 29:             TRISCbits.TRISC3 = 0;
-[e = . . _TRISCbits 0 3 -> -> 0 `i `uc ]
-"30
-[; ;lab4_v1.c: 30:             SSPSTATbits.SMP = 1;
-[e = . . _SSPSTATbits 0 7 -> -> 1 `i `uc ]
-"31
-[; ;lab4_v1.c: 31:             SSPSTATbits.CKE = 0;
-[e = . . _SSPSTATbits 0 6 -> -> 0 `i `uc ]
-"32
-[; ;lab4_v1.c: 32:             SSPSTATbits.BF = 0;
-[e = . . _SSPSTATbits 0 0 -> -> 0 `i `uc ]
-"34
-[; ;lab4_v1.c: 34:     }
-}
-[e $U 141  ]
-[e :U 142 ]
-[e [\ -> _mode `i , $ -> 1 `i 143
- 141 ]
-[e :U 141 ]
-"35
-[; ;lab4_v1.c: 35: }
-[e :UE 140 ]
+"80
+[; ;lab4_v1.c: 80: }
+[e :UE 147 ]
 }

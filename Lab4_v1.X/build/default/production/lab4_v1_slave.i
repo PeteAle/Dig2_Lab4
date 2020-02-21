@@ -1,4 +1,4 @@
-# 1 "lab4_v1.c"
+# 1 "lab4_v1_slave.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,8 +6,8 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "lab4_v1.c" 2
-# 13 "lab4_v1.c"
+# 1 "lab4_v1_slave.c" 2
+# 13 "lab4_v1_slave.c"
 #pragma config FOSC = INTRC_NOCLKOUT
 #pragma config WDTE = OFF
 #pragma config PWRTE = OFF
@@ -2511,19 +2511,19 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 27 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 2 3
-# 31 "lab4_v1.c" 2
+# 31 "lab4_v1_slave.c" 2
 
 # 1 "./lib_adc.h" 1
 # 36 "./lib_adc.h"
 void adcSetup(void);
 unsigned char analogInSel(unsigned char analogIn);
 unsigned char adcFoscSel(unsigned char fosc);
-# 32 "lab4_v1.c" 2
+# 32 "lab4_v1_slave.c" 2
 
 # 1 "./lib_osccon.h" 1
 # 36 "./lib_osccon.h"
 unsigned char oscInit(unsigned char freq);
-# 33 "lab4_v1.c" 2
+# 33 "lab4_v1_slave.c" 2
 
 # 1 "./lib_spi.h" 1
 # 35 "./lib_spi.h"
@@ -2766,7 +2766,7 @@ void spi_msinit(unsigned char mode);
 void spi_write(char datos);
 void spi_bufReady(unsigned char ready);
 void spi_read(char lectura);
-# 34 "lab4_v1.c" 2
+# 34 "lab4_v1_slave.c" 2
 
 # 1 "./UART.h" 1
 # 36 "./UART.h"
@@ -2775,50 +2775,41 @@ void uart_9bit(unsigned char rx9, unsigned char tx9);
 void txrx_En(unsigned char tx, unsigned char rx);
 void baudRate(unsigned char rateSel, unsigned char baudN, unsigned char rateGen);
 void uart_interrupts(unsigned char rx_int, unsigned char tx_int);
-# 35 "lab4_v1.c" 2
+# 35 "lab4_v1_slave.c" 2
 
 
 
-
-float pot1 = 0;
-float pot2 = 0;
-uint16_t temp1 = 0, temp2 = 0;
 
 void setup(void);
+void intEnable(void);
 
-
-void __attribute__((picinterrupt(("")))) isr(){
-
-}
-
-
-void main(void){
+void main(void) {
     setup();
-    oscInit(1);
-
-
-
-    uart_init();
-    uart_9bit(0,0);
-    txrx_En(1,1);
-
-    uart_interrupts(0,0);
+    adcSetup();
+    analogInSel(5);
+    adcFoscSel(1);
+    spi_msinit(3);
+    intEnable();
     while(1){
-        if (SSPSTATbits.BF == 1 & pot2 != 0){
-
-        }
-        else if (SSPSTATbits.BF == 1 & pot1 != 0){
-
+        if (ADCON0bits.GO_DONE == 0){
+            ADCON0bits.GO_DONE = 1;
         }
     }
     return;
 }
 
 void setup(void){
-    TRISB = 0x00;
     TRISEbits.TRISE0 = 1;
     TRISEbits.TRISE1 = 1;
     ANSELbits.ANS5 = 1;
     ANSELbits.ANS6 = 1;
-    PORTB = 0x00;
+    PORTE = 0;
+}
+
+void intEnable(void){
+    INTCONbits.GIE = 1;
+    INTCONbits.PEIE = 1;
+    PIE1bits.ADIE = 1;
+    PIE1bits.TXIE = 0;
+    PIE1bits.RCIE = 1;
 }

@@ -1,8 +1,8 @@
 /*
- * File:   lab4_v1.c
+ * File:   lab4_v1_slave.c
  * Author: Peter
  *
- * Created on February 14, 2020, 12:00 PM
+ * Created on February 21, 2020, 11:45 AM
  */
 
 // PIC16F887 Configuration Bit Settings
@@ -36,45 +36,36 @@
 
 #define _XTAL_FREQ 4000000
 
-float pot1 = 0;
-float pot2 = 0;
-uint16_t temp1 = 0, temp2 = 0;
-
 void setup(void);
+void intEnable(void);
 
-
-void __interrupt() isr(){
-    
-}
-
-
-void main(void){
+void main(void) {
     setup();
-    oscInit(1);
-    //adcSetup();
-    //analogInSel(5);
-    //adcFoscSel(1);
-    uart_init();
-    uart_9bit(0,0);
-    txrx_En(1,1);
-    //baudRate();
-    uart_interrupts(0,0);
+    adcSetup();
+    analogInSel(5);
+    adcFoscSel(1);
+    spi_msinit(3);
+    intEnable();
     while(1){
-        if (SSPSTATbits.BF == 1 & pot2 != 0){
-            //pot1 = 
-        }
-        else if (SSPSTATbits.BF == 1 & pot1 != 0){
-            //pot2 = 
+        if (ADCON0bits.GO_DONE == 0){
+            ADCON0bits.GO_DONE = 1;
         }
     }
     return;
 }
 
 void setup(void){
-    TRISB = 0x00;
     TRISEbits.TRISE0 = 1;
     TRISEbits.TRISE1 = 1;
     ANSELbits.ANS5 = 1;
     ANSELbits.ANS6 = 1;
-    PORTB = 0x00;
+    PORTE = 0;
+}
+
+void intEnable(void){
+    INTCONbits.GIE = 1;
+    INTCONbits.PEIE = 1;
+    PIE1bits.ADIE = 1;
+    PIE1bits.TXIE = 0;
+    PIE1bits.RCIE = 1;
 }

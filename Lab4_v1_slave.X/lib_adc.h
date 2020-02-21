@@ -28,11 +28,13 @@
 
 // This is a guard condition so that contents of this file are not included
 // more than once.  
-#ifndef __LIB_OSCCON_H_
-#define	__LIB_OSCCON_H_
+#ifndef __LIB_ADC_H_
+#define	__LIB_ADC_H_
 
 #include <xc.h> // include processor files - each processor file is guarded.  
 
-unsigned char oscInit(unsigned char freq);
+void adcSetup(void);
+unsigned char analogInSel(unsigned char analogIn);
+unsigned char adcFoscSel(unsigned char fosc);
 
 #endif

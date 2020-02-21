@@ -28,11 +28,16 @@
 
 // This is a guard condition so that contents of this file are not included
 // more than once.  
-#ifndef __LIB_OSCCON_H_
-#define	__LIB_OSCCON_H_
+#ifndef __UART_H_
+#define	__UART_H_
 
 #include <xc.h> // include processor files - each processor file is guarded.  
 
-unsigned char oscInit(unsigned char freq);
+void uart_init(void);
+void uart_9bit(unsigned char rx9, unsigned char tx9);
+void txrx_En(unsigned char tx, unsigned char rx);
+void baudRate(unsigned char rateSel, unsigned char baudN, unsigned char rateGen);
+void uart_interrupts(unsigned char rx_int, unsigned char tx_int);
 
-#endif
+#endif	/* XC_HEADER_TEMPLATE_H */
+

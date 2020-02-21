@@ -1,19 +1,121 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"1868 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1868:     struct {
-[s S70 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 ]
-[n S70 . SCS LTS HTS OSTS IRCF ]
-"1875
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1875:     struct {
-[s S71 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S71 . . IRCF0 IRCF1 IRCF2 ]
-"1867
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1867: typedef union {
-[u S69 `S70 1 `S71 1 ]
-[n S69 . . . ]
-"1882
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1882: extern volatile OSCCONbits_t OSCCONbits __attribute__((address(0x08F)));
-[v _OSCCONbits `VS69 ~T0 @X0 0 e@143 ]
+[p mainexit ]
+"39 lab4_v1_slave.c
+[; ;lab4_v1_slave.c: 39: void setup(void);
+[v _setup `(v ~T0 @X0 0 ef ]
+"36 ./lib_adc.h
+[; ;./lib_adc.h: 36: void adcSetup(void);
+[v _adcSetup `(v ~T0 @X0 0 ef ]
+"37
+[; ;./lib_adc.h: 37: unsigned char analogInSel(unsigned char analogIn);
+[v _analogInSel `(uc ~T0 @X0 0 ef1`uc ]
+"38
+[; ;./lib_adc.h: 38: unsigned char adcFoscSel(unsigned char fosc);
+[v _adcFoscSel `(uc ~T0 @X0 0 ef1`uc ]
+"38 ./lib_spi.h
+[; ;./lib_spi.h: 38: void spi_msinit(unsigned char mode);
+[v _spi_msinit `(v ~T0 @X0 0 ef1`uc ]
+"40 lab4_v1_slave.c
+[; ;lab4_v1_slave.c: 40: void intEnable(void);
+[v _intEnable `(v ~T0 @X0 0 ef ]
+"1251 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1251:     struct {
+[s S45 :1 `uc 1 :1 `uc 1 :4 `uc 1 :2 `uc 1 ]
+[n S45 . ADON GO_nDONE CHS ADCS ]
+"1257
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1257:     struct {
+[s S46 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S46 . . GO CHS0 CHS1 CHS2 CHS3 ADCS0 ADCS1 ]
+"1267
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1267:     struct {
+[s S47 :1 `uc 1 :1 `uc 1 ]
+[n S47 . . nDONE ]
+"1271
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1271:     struct {
+[s S48 :1 `uc 1 :1 `uc 1 ]
+[n S48 . . GO_DONE ]
+"1250
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1250: typedef union {
+[u S44 `S45 1 `S46 1 `S47 1 `S48 1 ]
+[n S44 . . . . . ]
+"1276
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1276: extern volatile ADCON0bits_t ADCON0bits __attribute__((address(0x01F)));
+[v _ADCON0bits `VS44 ~T0 @X0 0 e@31 ]
+"1670
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1670:     struct {
+[s S61 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S61 . TRISE0 TRISE1 TRISE2 TRISE3 ]
+"1669
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1669: typedef union {
+[u S60 `S61 1 ]
+[n S60 . . ]
+"1677
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1677: extern volatile TRISEbits_t TRISEbits __attribute__((address(0x089)));
+[v _TRISEbits `VS60 ~T0 @X0 0 e@137 ]
+"3393
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 3393:     struct {
+[s S133 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S133 . ANS0 ANS1 ANS2 ANS3 ANS4 ANS5 ANS6 ANS7 ]
+"3392
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 3392: typedef union {
+[u S132 `S133 1 ]
+[n S132 . . ]
+"3404
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 3404: extern volatile ANSELbits_t ANSELbits __attribute__((address(0x188)));
+[v _ANSELbits `VS132 ~T0 @X0 0 e@392 ]
+"414
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 414: extern volatile unsigned char PORTE __attribute__((address(0x009)));
+[v _PORTE `Vuc ~T0 @X0 0 e@9 ]
+"465
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 465:     struct {
+[s S16 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S16 . RBIF INTF T0IF RBIE INTE T0IE PEIE GIE ]
+"475
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 475:     struct {
+[s S17 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S17 . . TMR0IF . TMR0IE ]
+"464
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 464: typedef union {
+[u S15 `S16 1 `S17 1 ]
+[n S15 . . . ]
+"482
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 482: extern volatile INTCONbits_t INTCONbits __attribute__((address(0x00B)));
+[v _INTCONbits `VS15 ~T0 @X0 0 e@11 ]
+"1708
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1708:     struct {
+[s S63 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S63 . TMR1IE TMR2IE CCP1IE SSPIE TXIE RCIE ADIE ]
+"1707
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1707: typedef union {
+[u S62 `S63 1 ]
+[n S62 . . ]
+"1718
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1718: extern volatile PIE1bits_t PIE1bits __attribute__((address(0x08C)));
+[v _PIE1bits `VS62 ~T0 @X0 0 e@140 ]
+"13 lab4_v1_slave.c
+[p x FOSC = INTRC_NOCLKOUT ]
+"14
+[p x WDTE = OFF ]
+"15
+[p x PWRTE = OFF ]
+"16
+[p x MCLRE = OFF ]
+"17
+[p x CP = OFF ]
+"18
+[p x CPD = OFF ]
+"19
+[p x BOREN = OFF ]
+"20
+[p x IESO = OFF ]
+"21
+[p x FCMEN = OFF ]
+"22
+[p x LVP = OFF ]
+"25
+[p x BOR4V = BOR40V ]
+"26
+[p x WRT = OFF ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -248,253 +350,106 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3546
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"11 lib_osccon.c
-[; ;lib_osccon.c: 11: unsigned char oscInit(unsigned char freq) {
-[v _oscInit `(uc ~T0 @X0 1 ef1`uc ]
+[v $root$_main `(v ~T0 @X0 0 e ]
+"42 lab4_v1_slave.c
+[; ;lab4_v1_slave.c: 42: void main(void) {
+[v _main `(v ~T0 @X0 1 ef ]
 {
-[e :U _oscInit ]
-[v _freq `uc ~T0 @X0 1 r1 ]
+[e :U _main ]
 [f ]
-"12
-[; ;lib_osccon.c: 12:     switch(freq){
-[e $U 140  ]
-{
-"13
-[; ;lib_osccon.c: 13:         case 0:
-[e :U 141 ]
-"14
-[; ;lib_osccon.c: 14:             OSCCONbits.IRCF2 = 1;
-[e = . . _OSCCONbits 1 3 -> -> 1 `i `uc ]
-"15
-[; ;lib_osccon.c: 15:             OSCCONbits.IRCF1 = 1;
-[e = . . _OSCCONbits 1 2 -> -> 1 `i `uc ]
-"16
-[; ;lib_osccon.c: 16:             OSCCONbits.IRCF0 = 1;
-[e = . . _OSCCONbits 1 1 -> -> 1 `i `uc ]
-"17
-[; ;lib_osccon.c: 17:             OSCCONbits.OSTS = 0;
-[e = . . _OSCCONbits 0 3 -> -> 0 `i `uc ]
-"18
-[; ;lib_osccon.c: 18:             OSCCONbits.HTS = 1;
-[e = . . _OSCCONbits 0 2 -> -> 1 `i `uc ]
-"19
-[; ;lib_osccon.c: 19:             OSCCONbits.LTS = 0;
-[e = . . _OSCCONbits 0 1 -> -> 0 `i `uc ]
-"20
-[; ;lib_osccon.c: 20:             OSCCONbits.SCS = 1;
-[e = . . _OSCCONbits 0 0 -> -> 1 `i `uc ]
-"21
-[; ;lib_osccon.c: 21:             break;
-[e $U 139  ]
-"22
-[; ;lib_osccon.c: 22:         case 1:
-[e :U 142 ]
-"23
-[; ;lib_osccon.c: 23:             OSCCONbits.IRCF2 = 1;
-[e = . . _OSCCONbits 1 3 -> -> 1 `i `uc ]
-"24
-[; ;lib_osccon.c: 24:             OSCCONbits.IRCF1 = 1;
-[e = . . _OSCCONbits 1 2 -> -> 1 `i `uc ]
-"25
-[; ;lib_osccon.c: 25:             OSCCONbits.IRCF0 = 0;
-[e = . . _OSCCONbits 1 1 -> -> 0 `i `uc ]
-"26
-[; ;lib_osccon.c: 26:             OSCCONbits.OSTS = 0;
-[e = . . _OSCCONbits 0 3 -> -> 0 `i `uc ]
-"27
-[; ;lib_osccon.c: 27:             OSCCONbits.HTS = 1;
-[e = . . _OSCCONbits 0 2 -> -> 1 `i `uc ]
-"28
-[; ;lib_osccon.c: 28:             OSCCONbits.LTS = 0;
-[e = . . _OSCCONbits 0 1 -> -> 0 `i `uc ]
-"29
-[; ;lib_osccon.c: 29:             OSCCONbits.SCS = 1;
-[e = . . _OSCCONbits 0 0 -> -> 1 `i `uc ]
-"30
-[; ;lib_osccon.c: 30:             break;
-[e $U 139  ]
-"31
-[; ;lib_osccon.c: 31:         case 2:
-[e :U 143 ]
-"32
-[; ;lib_osccon.c: 32:             OSCCONbits.IRCF2 = 1;
-[e = . . _OSCCONbits 1 3 -> -> 1 `i `uc ]
-"33
-[; ;lib_osccon.c: 33:             OSCCONbits.IRCF1 = 0;
-[e = . . _OSCCONbits 1 2 -> -> 0 `i `uc ]
-"34
-[; ;lib_osccon.c: 34:             OSCCONbits.IRCF0 = 1;
-[e = . . _OSCCONbits 1 1 -> -> 1 `i `uc ]
-"35
-[; ;lib_osccon.c: 35:             OSCCONbits.OSTS = 0;
-[e = . . _OSCCONbits 0 3 -> -> 0 `i `uc ]
-"36
-[; ;lib_osccon.c: 36:             OSCCONbits.HTS = 1;
-[e = . . _OSCCONbits 0 2 -> -> 1 `i `uc ]
-"37
-[; ;lib_osccon.c: 37:             OSCCONbits.LTS = 0;
-[e = . . _OSCCONbits 0 1 -> -> 0 `i `uc ]
-"38
-[; ;lib_osccon.c: 38:             OSCCONbits.SCS = 1;
-[e = . . _OSCCONbits 0 0 -> -> 1 `i `uc ]
-"39
-[; ;lib_osccon.c: 39:             break;
-[e $U 139  ]
-"40
-[; ;lib_osccon.c: 40:         case 3:
-[e :U 144 ]
-"41
-[; ;lib_osccon.c: 41:             OSCCONbits.IRCF2 = 1;
-[e = . . _OSCCONbits 1 3 -> -> 1 `i `uc ]
-"42
-[; ;lib_osccon.c: 42:             OSCCONbits.IRCF1 = 0;
-[e = . . _OSCCONbits 1 2 -> -> 0 `i `uc ]
 "43
-[; ;lib_osccon.c: 43:             OSCCONbits.IRCF0 = 0;
-[e = . . _OSCCONbits 1 1 -> -> 0 `i `uc ]
+[; ;lab4_v1_slave.c: 43:     setup();
+[e ( _setup ..  ]
 "44
-[; ;lib_osccon.c: 44:             OSCCONbits.OSTS = 0;
-[e = . . _OSCCONbits 0 3 -> -> 0 `i `uc ]
+[; ;lab4_v1_slave.c: 44:     adcSetup();
+[e ( _adcSetup ..  ]
 "45
-[; ;lib_osccon.c: 45:             OSCCONbits.HTS = 1;
-[e = . . _OSCCONbits 0 2 -> -> 1 `i `uc ]
+[; ;lab4_v1_slave.c: 45:     analogInSel(5);
+[e ( _analogInSel (1 -> -> 5 `i `uc ]
 "46
-[; ;lib_osccon.c: 46:             OSCCONbits.LTS = 0;
-[e = . . _OSCCONbits 0 1 -> -> 0 `i `uc ]
+[; ;lab4_v1_slave.c: 46:     adcFoscSel(1);
+[e ( _adcFoscSel (1 -> -> 1 `i `uc ]
 "47
-[; ;lib_osccon.c: 47:             OSCCONbits.SCS = 1;
-[e = . . _OSCCONbits 0 0 -> -> 1 `i `uc ]
+[; ;lab4_v1_slave.c: 47:     spi_msinit(3);
+[e ( _spi_msinit (1 -> -> 3 `i `uc ]
 "48
-[; ;lib_osccon.c: 48:             break;
-[e $U 139  ]
+[; ;lab4_v1_slave.c: 48:     intEnable();
+[e ( _intEnable ..  ]
 "49
-[; ;lib_osccon.c: 49:         case 4:
-[e :U 145 ]
+[; ;lab4_v1_slave.c: 49:     while(1){
+[e :U 141 ]
+{
 "50
-[; ;lib_osccon.c: 50:             OSCCONbits.IRCF2 = 0;
-[e = . . _OSCCONbits 1 3 -> -> 0 `i `uc ]
+[; ;lab4_v1_slave.c: 50:         if (ADCON0bits.GO_DONE == 0){
+[e $ ! == -> . . _ADCON0bits 3 1 `i -> 0 `i 143  ]
+{
 "51
-[; ;lib_osccon.c: 51:             OSCCONbits.IRCF1 = 1;
-[e = . . _OSCCONbits 1 2 -> -> 1 `i `uc ]
+[; ;lab4_v1_slave.c: 51:             ADCON0bits.GO_DONE = 1;
+[e = . . _ADCON0bits 3 1 -> -> 1 `i `uc ]
 "52
-[; ;lib_osccon.c: 52:             OSCCONbits.IRCF0 = 1;
-[e = . . _OSCCONbits 1 1 -> -> 1 `i `uc ]
-"53
-[; ;lib_osccon.c: 53:             OSCCONbits.OSTS = 0;
-[e = . . _OSCCONbits 0 3 -> -> 0 `i `uc ]
-"54
-[; ;lib_osccon.c: 54:             OSCCONbits.HTS = 1;
-[e = . . _OSCCONbits 0 2 -> -> 1 `i `uc ]
-"55
-[; ;lib_osccon.c: 55:             OSCCONbits.LTS = 0;
-[e = . . _OSCCONbits 0 1 -> -> 0 `i `uc ]
-"56
-[; ;lib_osccon.c: 56:             OSCCONbits.SCS = 1;
-[e = . . _OSCCONbits 0 0 -> -> 1 `i `uc ]
-"57
-[; ;lib_osccon.c: 57:             break;
-[e $U 139  ]
-"58
-[; ;lib_osccon.c: 58:         case 5:
-[e :U 146 ]
-"59
-[; ;lib_osccon.c: 59:             OSCCONbits.IRCF2 = 0;
-[e = . . _OSCCONbits 1 3 -> -> 0 `i `uc ]
-"60
-[; ;lib_osccon.c: 60:             OSCCONbits.IRCF1 = 1;
-[e = . . _OSCCONbits 1 2 -> -> 1 `i `uc ]
-"61
-[; ;lib_osccon.c: 61:             OSCCONbits.IRCF0 = 0;
-[e = . . _OSCCONbits 1 1 -> -> 0 `i `uc ]
-"62
-[; ;lib_osccon.c: 62:             OSCCONbits.OSTS = 0;
-[e = . . _OSCCONbits 0 3 -> -> 0 `i `uc ]
-"63
-[; ;lib_osccon.c: 63:             OSCCONbits.HTS = 1;
-[e = . . _OSCCONbits 0 2 -> -> 1 `i `uc ]
-"64
-[; ;lib_osccon.c: 64:             OSCCONbits.LTS = 0;
-[e = . . _OSCCONbits 0 1 -> -> 0 `i `uc ]
-"65
-[; ;lib_osccon.c: 65:             OSCCONbits.SCS = 1;
-[e = . . _OSCCONbits 0 0 -> -> 1 `i `uc ]
-"66
-[; ;lib_osccon.c: 66:             break;
-[e $U 139  ]
-"67
-[; ;lib_osccon.c: 67:         case 6:
-[e :U 147 ]
-"68
-[; ;lib_osccon.c: 68:             OSCCONbits.IRCF2 = 0;
-[e = . . _OSCCONbits 1 3 -> -> 0 `i `uc ]
-"69
-[; ;lib_osccon.c: 69:             OSCCONbits.IRCF1 = 0;
-[e = . . _OSCCONbits 1 2 -> -> 0 `i `uc ]
-"70
-[; ;lib_osccon.c: 70:             OSCCONbits.IRCF0 = 1;
-[e = . . _OSCCONbits 1 1 -> -> 1 `i `uc ]
-"71
-[; ;lib_osccon.c: 71:             OSCCONbits.OSTS = 0;
-[e = . . _OSCCONbits 0 3 -> -> 0 `i `uc ]
-"72
-[; ;lib_osccon.c: 72:             OSCCONbits.HTS = 1;
-[e = . . _OSCCONbits 0 2 -> -> 1 `i `uc ]
-"73
-[; ;lib_osccon.c: 73:             OSCCONbits.LTS = 0;
-[e = . . _OSCCONbits 0 1 -> -> 0 `i `uc ]
-"74
-[; ;lib_osccon.c: 74:             OSCCONbits.SCS = 1;
-[e = . . _OSCCONbits 0 0 -> -> 1 `i `uc ]
-"75
-[; ;lib_osccon.c: 75:             break;
-[e $U 139  ]
-"76
-[; ;lib_osccon.c: 76:         case 7:
-[e :U 148 ]
-"77
-[; ;lib_osccon.c: 77:             OSCCONbits.IRCF2 = 0;
-[e = . . _OSCCONbits 1 3 -> -> 0 `i `uc ]
-"78
-[; ;lib_osccon.c: 78:             OSCCONbits.IRCF1 = 0;
-[e = . . _OSCCONbits 1 2 -> -> 0 `i `uc ]
-"79
-[; ;lib_osccon.c: 79:             OSCCONbits.IRCF0 = 0;
-[e = . . _OSCCONbits 1 1 -> -> 0 `i `uc ]
-"80
-[; ;lib_osccon.c: 80:             OSCCONbits.OSTS = 0;
-[e = . . _OSCCONbits 0 3 -> -> 0 `i `uc ]
-"81
-[; ;lib_osccon.c: 81:             OSCCONbits.HTS = 0;
-[e = . . _OSCCONbits 0 2 -> -> 0 `i `uc ]
-"82
-[; ;lib_osccon.c: 82:             OSCCONbits.LTS = 1;
-[e = . . _OSCCONbits 0 1 -> -> 1 `i `uc ]
-"83
-[; ;lib_osccon.c: 83:             OSCCONbits.SCS = 1;
-[e = . . _OSCCONbits 0 0 -> -> 1 `i `uc ]
-"84
-[; ;lib_osccon.c: 84:             break;
-[e $U 139  ]
-"85
-[; ;lib_osccon.c: 85:     }
+[; ;lab4_v1_slave.c: 52:         }
 }
-[e $U 139  ]
+[e :U 143 ]
+"53
+[; ;lab4_v1_slave.c: 53:     }
+}
 [e :U 140 ]
-[e [\ -> _freq `i , $ -> 0 `i 141
- , $ -> 1 `i 142
- , $ -> 2 `i 143
- , $ -> 3 `i 144
- , $ -> 4 `i 145
- , $ -> 5 `i 146
- , $ -> 6 `i 147
- , $ -> 7 `i 148
- 139 ]
-[e :U 139 ]
-"86
-[; ;lib_osccon.c: 86:     return(freq);
-[e ) _freq ]
-[e $UE 138  ]
-"87
-[; ;lib_osccon.c: 87: }
-[e :UE 138 ]
+[e $U 141  ]
+[e :U 142 ]
+"54
+[; ;lab4_v1_slave.c: 54:     return;
+[e $UE 139  ]
+"55
+[; ;lab4_v1_slave.c: 55: }
+[e :UE 139 ]
+}
+"57
+[; ;lab4_v1_slave.c: 57: void setup(void){
+[v _setup `(v ~T0 @X0 1 ef ]
+{
+[e :U _setup ]
+[f ]
+"58
+[; ;lab4_v1_slave.c: 58:     TRISEbits.TRISE0 = 1;
+[e = . . _TRISEbits 0 0 -> -> 1 `i `uc ]
+"59
+[; ;lab4_v1_slave.c: 59:     TRISEbits.TRISE1 = 1;
+[e = . . _TRISEbits 0 1 -> -> 1 `i `uc ]
+"60
+[; ;lab4_v1_slave.c: 60:     ANSELbits.ANS5 = 1;
+[e = . . _ANSELbits 0 5 -> -> 1 `i `uc ]
+"61
+[; ;lab4_v1_slave.c: 61:     ANSELbits.ANS6 = 1;
+[e = . . _ANSELbits 0 6 -> -> 1 `i `uc ]
+"62
+[; ;lab4_v1_slave.c: 62:     PORTE = 0;
+[e = _PORTE -> -> 0 `i `uc ]
+"63
+[; ;lab4_v1_slave.c: 63: }
+[e :UE 144 ]
+}
+"65
+[; ;lab4_v1_slave.c: 65: void intEnable(void){
+[v _intEnable `(v ~T0 @X0 1 ef ]
+{
+[e :U _intEnable ]
+[f ]
+"66
+[; ;lab4_v1_slave.c: 66:     INTCONbits.GIE = 1;
+[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
+"67
+[; ;lab4_v1_slave.c: 67:     INTCONbits.PEIE = 1;
+[e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
+"68
+[; ;lab4_v1_slave.c: 68:     PIE1bits.ADIE = 1;
+[e = . . _PIE1bits 0 6 -> -> 1 `i `uc ]
+"69
+[; ;lab4_v1_slave.c: 69:     PIE1bits.TXIE = 0;
+[e = . . _PIE1bits 0 4 -> -> 0 `i `uc ]
+"70
+[; ;lab4_v1_slave.c: 70:     PIE1bits.RCIE = 1;
+[e = . . _PIE1bits 0 5 -> -> 1 `i `uc ]
+"71
+[; ;lab4_v1_slave.c: 71: }
+[e :UE 145 ]
 }
