@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=lab4_v1.c lib_adc.c lib_osccon.c lib_spi.c UART.c lab4_v1_slave.c
+SOURCEFILES_QUOTED_IF_SPACED=lab4_v1.c lib_adc.c lib_osccon.c UART.c SPI.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/lab4_v1.p1 ${OBJECTDIR}/lib_adc.p1 ${OBJECTDIR}/lib_osccon.p1 ${OBJECTDIR}/lib_spi.p1 ${OBJECTDIR}/UART.p1 ${OBJECTDIR}/lab4_v1_slave.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/lab4_v1.p1.d ${OBJECTDIR}/lib_adc.p1.d ${OBJECTDIR}/lib_osccon.p1.d ${OBJECTDIR}/lib_spi.p1.d ${OBJECTDIR}/UART.p1.d ${OBJECTDIR}/lab4_v1_slave.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/lab4_v1.p1 ${OBJECTDIR}/lib_adc.p1 ${OBJECTDIR}/lib_osccon.p1 ${OBJECTDIR}/UART.p1 ${OBJECTDIR}/SPI.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/lab4_v1.p1.d ${OBJECTDIR}/lib_adc.p1.d ${OBJECTDIR}/lib_osccon.p1.d ${OBJECTDIR}/UART.p1.d ${OBJECTDIR}/SPI.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/lab4_v1.p1 ${OBJECTDIR}/lib_adc.p1 ${OBJECTDIR}/lib_osccon.p1 ${OBJECTDIR}/lib_spi.p1 ${OBJECTDIR}/UART.p1 ${OBJECTDIR}/lab4_v1_slave.p1
+OBJECTFILES=${OBJECTDIR}/lab4_v1.p1 ${OBJECTDIR}/lib_adc.p1 ${OBJECTDIR}/lib_osccon.p1 ${OBJECTDIR}/UART.p1 ${OBJECTDIR}/SPI.p1
 
 # Source Files
-SOURCEFILES=lab4_v1.c lib_adc.c lib_osccon.c lib_spi.c UART.c lab4_v1_slave.c
+SOURCEFILES=lab4_v1.c lib_adc.c lib_osccon.c UART.c SPI.c
 
 
 
@@ -118,14 +118,6 @@ ${OBJECTDIR}/lib_osccon.p1: lib_osccon.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/lib_osccon.d ${OBJECTDIR}/lib_osccon.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/lib_osccon.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/lib_spi.p1: lib_spi.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/lib_spi.p1.d 
-	@${RM} ${OBJECTDIR}/lib_spi.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1    -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/lib_spi.p1 lib_spi.c 
-	@-${MV} ${OBJECTDIR}/lib_spi.d ${OBJECTDIR}/lib_spi.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/lib_spi.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
 ${OBJECTDIR}/UART.p1: UART.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/UART.p1.d 
@@ -134,13 +126,13 @@ ${OBJECTDIR}/UART.p1: UART.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/UART.d ${OBJECTDIR}/UART.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/UART.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/lab4_v1_slave.p1: lab4_v1_slave.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/SPI.p1: SPI.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/lab4_v1_slave.p1.d 
-	@${RM} ${OBJECTDIR}/lab4_v1_slave.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1    -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/lab4_v1_slave.p1 lab4_v1_slave.c 
-	@-${MV} ${OBJECTDIR}/lab4_v1_slave.d ${OBJECTDIR}/lab4_v1_slave.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/lab4_v1_slave.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	@${RM} ${OBJECTDIR}/SPI.p1.d 
+	@${RM} ${OBJECTDIR}/SPI.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1    -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/SPI.p1 SPI.c 
+	@-${MV} ${OBJECTDIR}/SPI.d ${OBJECTDIR}/SPI.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/SPI.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 else
 ${OBJECTDIR}/lab4_v1.p1: lab4_v1.c  nbproject/Makefile-${CND_CONF}.mk
@@ -167,14 +159,6 @@ ${OBJECTDIR}/lib_osccon.p1: lib_osccon.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/lib_osccon.d ${OBJECTDIR}/lib_osccon.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/lib_osccon.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/lib_spi.p1: lib_spi.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/lib_spi.p1.d 
-	@${RM} ${OBJECTDIR}/lib_spi.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c    -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/lib_spi.p1 lib_spi.c 
-	@-${MV} ${OBJECTDIR}/lib_spi.d ${OBJECTDIR}/lib_spi.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/lib_spi.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
 ${OBJECTDIR}/UART.p1: UART.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/UART.p1.d 
@@ -183,13 +167,13 @@ ${OBJECTDIR}/UART.p1: UART.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/UART.d ${OBJECTDIR}/UART.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/UART.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/lab4_v1_slave.p1: lab4_v1_slave.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/SPI.p1: SPI.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/lab4_v1_slave.p1.d 
-	@${RM} ${OBJECTDIR}/lab4_v1_slave.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c    -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/lab4_v1_slave.p1 lab4_v1_slave.c 
-	@-${MV} ${OBJECTDIR}/lab4_v1_slave.d ${OBJECTDIR}/lab4_v1_slave.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/lab4_v1_slave.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	@${RM} ${OBJECTDIR}/SPI.p1.d 
+	@${RM} ${OBJECTDIR}/SPI.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c    -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/SPI.p1 SPI.c 
+	@-${MV} ${OBJECTDIR}/SPI.d ${OBJECTDIR}/SPI.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/SPI.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 

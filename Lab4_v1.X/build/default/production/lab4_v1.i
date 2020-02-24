@@ -2513,20 +2513,6 @@ extern __bank0 __bit __timeout;
 # 27 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 2 3
 # 31 "lab4_v1.c" 2
 
-# 1 "./lib_adc.h" 1
-# 36 "./lib_adc.h"
-void adcSetup(void);
-unsigned char analogInSel(unsigned char analogIn);
-unsigned char adcFoscSel(unsigned char fosc);
-# 32 "lab4_v1.c" 2
-
-# 1 "./lib_osccon.h" 1
-# 36 "./lib_osccon.h"
-unsigned char oscInit(unsigned char freq);
-# 33 "lab4_v1.c" 2
-
-# 1 "./lib_spi.h" 1
-# 35 "./lib_spi.h"
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 1 3
 # 13 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
 typedef signed char int8_t;
@@ -2660,7 +2646,7 @@ typedef int16_t intptr_t;
 
 
 typedef uint16_t uintptr_t;
-# 35 "./lib_spi.h" 2
+# 32 "lab4_v1.c" 2
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdio.h" 1 3
 
@@ -2759,14 +2745,57 @@ extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupport
 #pragma printf_check(sprintf) const
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
-# 36 "./lib_spi.h" 2
+# 33 "lab4_v1.c" 2
+
+# 1 "./lib_adc.h" 1
+# 36 "./lib_adc.h"
+void adcSetup(void);
+unsigned char analogInSel(unsigned char analogIn);
+unsigned char adcFoscSel(unsigned char fosc);
+# 34 "lab4_v1.c" 2
+
+# 1 "./lib_osccon.h" 1
+# 36 "./lib_osccon.h"
+unsigned char oscInit(unsigned char freq);
+# 35 "lab4_v1.c" 2
 
 
-void spi_msinit(unsigned char mode);
+# 1 "./SPI.h" 1
+# 36 "./SPI.h"
+typedef enum
+{
+  SPI_MASTER_OSC_DIV4 = 0b00100000,
+  SPI_MASTER_OSC_DIV16 = 0b00100001,
+  SPI_MASTER_OSC_DIV64 = 0b00100010,
+  SPI_MASTER_TMR2 = 0b00100011,
+  SPI_SLAVE_SS_EN = 0b00100100,
+  SPI_SLAVE_SS_DIS = 0b00100101
+}Spi_Type;
+
+typedef enum
+{
+  SPI_DATA_SAMPLE_MID = 0b00000000,
+  SPI_DATA_SAMPLE_END = 0b10000000
+}Spi_Data_Sample;
+
+typedef enum
+{
+  SPI_CLOCK_IDLE_HIGH = 0b00001000,
+  SPI_CLOCK_IDLE_LOW = 0b00000000
+}Spi_Clock_Idle;
+
+typedef enum
+{
+  SPI_IDLE_2_ACTIVE = 0b00000000,
+  SPI_ACTIVE_2_IDLE = 0b01000000
+}Spi_Transmit_Edge;
+
+void spi_msinit(Spi_Type sType, Spi_Data_Sample sDataSample, Spi_Clock_Idle sClockIdle, Spi_Transmit_Edge sTransmitEdge);
+void spi_wait(void);
 void spi_write(char datos);
 void spi_bufReady(unsigned char ready);
 void spi_read(char lectura);
-# 34 "lab4_v1.c" 2
+# 37 "lab4_v1.c" 2
 
 # 1 "./UART.h" 1
 # 36 "./UART.h"
@@ -2775,7 +2804,7 @@ void uart_9bit(unsigned char rx9, unsigned char tx9);
 void txrx_En(unsigned char tx, unsigned char rx);
 void baudRate(unsigned char rateSel, unsigned char baudN, unsigned char rateGen);
 void uart_interrupts(unsigned char rx_int, unsigned char tx_int);
-# 35 "lab4_v1.c" 2
+# 38 "lab4_v1.c" 2
 
 
 
@@ -2786,30 +2815,24 @@ uint16_t temp1 = 0, temp2 = 0;
 
 void setup(void);
 
-
-void __attribute__((picinterrupt(("")))) isr(){
-
-}
-
-
 void main(void){
     setup();
     oscInit(1);
+    spi_msinit(SPI_MASTER_OSC_DIV4, SPI_DATA_SAMPLE_MID, SPI_CLOCK_IDLE_LOW, SPI_ACTIVE_2_IDLE);
 
 
 
-    uart_init();
-    uart_9bit(0,0);
-    txrx_En(1,1);
 
-    uart_interrupts(0,0);
+
     while(1){
-        if (SSPSTATbits.BF == 1 & pot2 != 0){
-
+        if (SSPSTATbits.BF == 1 & PIR1bits.SSPIF == 1 & pot2 != 0){
+            spi_read(pot1);
+            PORTB = pot1;
         }
-        else if (SSPSTATbits.BF == 1 & pot1 != 0){
 
-        }
+
+
+
     }
     return;
 }

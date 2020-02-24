@@ -36,9 +36,10 @@
 #include <stdio.h>
 
 void spi_msinit(unsigned char mode);
-void spi_write(char datos);
+void spi_sWrite(int sData);
+void spi_write(int datos);
 void spi_bufReady(unsigned char ready);
 void spi_read(char lectura);
 
-#endif	/* XC_HEADER_TEMPLATE_H */
+#endif
 

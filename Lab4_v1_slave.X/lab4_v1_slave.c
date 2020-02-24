@@ -29,9 +29,12 @@
 // Use project enums instead of #define for ON and OFF.
 
 #include <xc.h>
+#include <stdint.h>
+#include <stdio.h>
 #include "lib_adc.h"
 #include "lib_osccon.h"
-#include "lib_spi.h"
+//#include "lib_spi.h"
+#include "SPI.h"
 #include "UART.h"
 
 #define _XTAL_FREQ 4000000
@@ -39,26 +42,76 @@
 void setup(void);
 void intEnable(void);
 
+uint8_t temporal = 0;
+uint8_t pot1 = 0;
+int pot2 = 0;
+uint16_t temp1 = 0, temp2 = 0;
+uint16_t centenas1 = 0, decenas1 = 0, unidades1 = 0;
+uint16_t centenas2 = 0, decenas2 = 0, unidades2 = 0;
+
+
+void __interrupt() isr(){
+    di();
+    
+    }
+//    else if (PIR1bits.ADIF == 1 && ADCON0bits.CHS3 == 0 && ADCON0bits.CHS2 == 1 && ADCON0bits.CHS1 == 1 && ADCON0bits.CHS0 == 1){
+//        pot2 = ADRESH;
+//        PIR1bits.ADIF = 0;
+//    }
+//    if (ADCON0bits.CHS3 == 0 && ADCON0bits.CHS2 == 1 && ADCON0bits.CHS1 == 1 && ADCON0bits.CHS0 == 0){
+//        ADCON0bits.CHS3 = 0;
+//        ADCON0bits.CHS2 = 1;
+//        ADCON0bits.CHS1 = 1;
+//        ADCON0bits.CHS0 = 1;
+//    }
+//    else if (ADCON0bits.CHS3 == 0 && ADCON0bits.CHS2 == 1 && ADCON0bits.CHS1 == 1 && ADCON0bits.CHS0 == 1){
+//        ADCON0bits.CHS3 = 0;
+//        ADCON0bits.CHS2 = 1;
+//        ADCON0bits.CHS1 = 1;
+//        ADCON0bits.CHS0 = 0;
+//    }
+//    ei();
+//}
+
 void main(void) {
     setup();
+    oscInit(1);
     adcSetup();
-    analogInSel(5);
+    analogInSel(6);
     adcFoscSel(1);
-    spi_msinit(3);
-    intEnable();
+    spi_msinit(SPI_SLAVE_SS_EN, SPI_DATA_SAMPLE_MID, SPI_CLOCK_IDLE_LOW, SPI_ACTIVE_2_IDLE);
+    //intEnable();
     while(1){
         if (ADCON0bits.GO_DONE == 0){
             ADCON0bits.GO_DONE = 1;
         }
+        if (SSPSTATbits.BF == 1){
+            spi_read(temporal);
+            spi_write(pot1);
+        }
+        if (PIR1bits.ADIF == 1 && ADCON0bits.CHS3 == 0 && ADCON0bits.CHS2 == 1 && ADCON0bits.CHS1 == 1 && ADCON0bits.CHS0 == 0){
+            pot1 = ADRESH;
+            PIR1bits.ADIF = 0;
+        }
+//        temp1 = ((pot1*5.0)/255.0)*100;
+//        centenas1 = temp1/100;
+//        temp1 = temp1 - (centenas1*100);
+//        decenas1 = temp1/10;
+//        unidades1 = temp1 - (decenas1*10);
+//        spi_write(centenas1);
+//        __delay_ms(100);
+//        spi_write(decenas1);
+//        __delay_ms(100);
+//        spi_write(unidades1);
     }
     return;
 }
 
 void setup(void){
-    TRISEbits.TRISE0 = 1;
     TRISEbits.TRISE1 = 1;
-    ANSELbits.ANS5 = 1;
+    TRISEbits.TRISE2 = 1;
     ANSELbits.ANS6 = 1;
+    ANSELbits.ANS7 = 1;
     PORTE = 0;
 }
 
@@ -66,6 +119,6 @@ void intEnable(void){
     INTCONbits.GIE = 1;
     INTCONbits.PEIE = 1;
     PIE1bits.ADIE = 1;
-    PIE1bits.TXIE = 0;
-    PIE1bits.RCIE = 1;
+    //PIE1bits.TXIE = 0;
+    //PIE1bits.RCIE = 1;
 }

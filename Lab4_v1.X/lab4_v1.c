@@ -29,9 +29,12 @@
 // Use project enums instead of #define for ON and OFF.
 
 #include <xc.h>
+#include <stdint.h>
+#include <stdio.h>
 #include "lib_adc.h"
 #include "lib_osccon.h"
-#include "lib_spi.h"
+//#include "lib_spi.h"
+#include "SPI.h"
 #include "UART.h"
 
 #define _XTAL_FREQ 4000000
@@ -42,30 +45,24 @@ uint16_t temp1 = 0, temp2 = 0;
 
 void setup(void);
 
-
-void __interrupt() isr(){
-    
-}
-
-
 void main(void){
     setup();
     oscInit(1);
-    //adcSetup();
-    //analogInSel(5);
-    //adcFoscSel(1);
-    uart_init();
-    uart_9bit(0,0);
-    txrx_En(1,1);
+    spi_msinit(SPI_MASTER_OSC_DIV4, SPI_DATA_SAMPLE_MID, SPI_CLOCK_IDLE_LOW, SPI_ACTIVE_2_IDLE);
+    //uart_init();
+    //uart_9bit(0,0);
+    //txrx_En(1,1);
     //baudRate();
-    uart_interrupts(0,0);
+    //uart_interrupts(0,0);
     while(1){
-        if (SSPSTATbits.BF == 1 & pot2 != 0){
-            //pot1 = 
+        if (SSPSTATbits.BF == 1 & PIR1bits.SSPIF == 1 & pot2 != 0){
+            spi_read(pot1);
+            PORTB = pot1;
         }
-        else if (SSPSTATbits.BF == 1 & pot1 != 0){
-            //pot2 = 
-        }
+//        else if (SSPSTATbits.BF == 1 & PIR1bits.SSPIF == 1 & pot1 != 0){
+//            spi_read(pot2);
+//            PORTB = pot2;
+//        }
     }
     return;
 }
